@@ -394,13 +394,13 @@ get_google_token <- function(shiny_return_token=NULL) {
 #' @family authentication functions
 #' @importFrom httr oauth_endpoints oauth_service_token
 #' @importFrom jsonlite fromJSON
-gar_auth_service <- function(json_file, scope = getOption("googleAuthR.scopes.selected")){
+gar_auth_service <- function(secrets, scope = getOption("googleAuthR.scopes.selected")){
   
-  stopifnot(file.exists(json_file))
+  # stopifnot(file.exists(json_file))
   
   endpoint <- oauth_endpoints("google")
   
-  secrets  <- fromJSON(json_file)
+  # secrets  <- fromJSON(json_file)
   scope <- paste(scope, collapse=" ")
   
   if(is.null(secrets$private_key)){
